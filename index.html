@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24/7 Esports | Your Community. 24/7.</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-dark: #07090D;
+            --bg-card: #0F1219;
+            --text-main: #FFFFFF;
+            --text-muted: #8B949E;
+            --accent-cyan: #19D9FC;
+            --accent-cyan-dim: #13A5BF;
+            --grid-line: #161B22;
+            --font-family-tech: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Placeholder for "tech" font */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Sublte grid background effect applied globally */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            opacity: 0.3;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.2s; }
+        ul { list-style: none; }
+
+        /* --- GLOBAL UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .btn-cyan {
+            background-color: var(--accent-cyan);
+            color: #000;
+        }
+        .btn-cyan:hover { background-color: #fff; }
+
+        .btn-dark {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid #30363D;
+        }
+        .btn-dark:hover { background-color: #161B22; border-color: #8B949E; }
+
+        .tag {
+            display: inline-block;
+            background-color: #161B22;
+            color: var(--accent-cyan);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            border: 1px solid #30363D;
+        }
+
+        /* --- SECTIONS --- */
+        section { padding: 100px 0; }
+
+        /* --- HEADER --- */
+        header {
+            background-color: rgba(7, 9, 13, 0.9);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--grid-line);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo-icon {
+            color: var(--accent-cyan);
+            font-style: normal;
+        }
+
+        nav ul { display: flex; gap: 30px; }
+        nav a { font-size: 0.9rem; color: var(--text-muted); }
+        nav a:hover { color: var(--text-main); }
+
+        .join-btn {
+            background-color: rgba(25, 217, 252, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan-dim);
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        .join-btn:hover { background-color: rgba(25, 217, 252, 0.2); }
+
+        /* --- HERO --- */
+        .hero {
+            padding-top: 180px;
+            text-align: left;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span.cyan { color: var(--accent-cyan); }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .hero-btns { display: flex; gap: 20px; }
+
+        /* --- INFO SECTIONS (General 2-column) --- */
+        .info-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .info-text h2 {
+            font-size: 3rem;
+            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .info-text .main-p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        /* --- FEATURE CARDS --- */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--grid-line);
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .feature-icon-v3 {
+            width: 40px;
+            height: 40px;
+            color: var(--accent-cyan);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(25, 217, 252, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(25, 217, 252, 0.1);
+        }
+
+        .feature-card-text h4 { font-size: 1rem; margin-bottom: 5px; }
+        .feature-card-text p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* --- THE NEW APP INTEGRATION (PHONE MOCKUP) --- */
+        .phone-mockup-container {
+            position: relative;
+            width: 320px; /* Adjust based on generated image aspect ratio */
+            margin: 0 auto;
+            justify-self: center;
+        }
+
+        .phone-frame {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 36px;
+            /* Sublte cyan glow matching screenshot 2/3 */
+            box-shadow: 0 0 60px rgba(25, 217, 252, 0.15); 
+            border: 2px solid #161B22; /* Basic frame */
+        }
+
+        /* --- VISION SECTION --- */
+        .vision { background-color: var(--bg-card); border-top: 1px solid var(--grid-line); border-bottom: 1px solid var(--grid-line); }
+
+        .vision-text-block h2 { font-size: 3rem; font-weight: 800; line-height: 1.2; max-width: 600px; margin-bottom: 20px;}
+        .vision-text-block p { color: var(--text-muted); max-width: 600px;}
+
+        /* --- LISTS (Connect/Grow/Tournaments) --- */
+        .vision-list { display: flex; flex-direction: column; gap: 20px; }
+
+        .list-item {
+            background-color: var(--bg-dark);
+            border: 1px solid var(--grid-line);
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .list-item:hover { border-color: #30363D; }
+
+        .list-icon {
+            width: 40px;
+            height: 40px;
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .list-content h4 { font-size: 1.1rem; margin-bottom: 5px; }
+        .list-content p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* --- FINAL CTA (Get Started) --- */
+        .final-cta { text-align: center; }
+        .final-cta h2 { font-size: 3.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 20px; }
+        .final-cta .main-p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 50px auto; }
+        
+        .final-cta .btn { font-size: 1.1rem; padding: 15px 40px; }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--bg-card);
+            padding: 80px 0 50px 0;
+            border-top: 1px solid var(--grid-line);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo-block .logo-text { margin-bottom: 20px; font-size: 1.3rem;}
+        .footer-logo-block p { max-width: 300px; margin-bottom: 20px; }
+        
+        .social-links { display: flex; gap: 15px; }
+        .social-icon { color: var(--text-muted); font-size: 1.1rem; }
+        .social-icon:hover { color: var(--text-main); }
+
+        .footer-nav h5 { color: var(--text-main); margin-bottom: 15px; font-size: 1rem; }
+        .footer-nav ul { display: flex; flex-direction: column; gap: 10px; }
+        .footer-nav a:hover { color: var(--text-main); }
+
+        .footer-cta h5 { color: var(--text-main); margin-bottom: 15px; font-size: 1rem; }
+        .footer-cta p { margin-bottom: 20px; }
+        
+        .footer-bottom { text-align: center; border-top: 1px solid var(--grid-line); padding-top: 30px; font-size: 0.8rem;}
+
+        /* --- RESPONSIVE (Simple Mobile Fix) --- */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 3rem; }
+            .info-split, .footer-grid { grid-template-columns: 1fr; gap: 50px; }
+            .feature-grid { grid-template-columns: 1fr; }
+            nav ul { display: none; } /* Basic hide nav */
+            .phone-mockup-container { width: 280px; margin-top: 50px;}
+            .info-text h2, .vision-text-block h2, .final-cta h2 { font-size: 2.5rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- HEADER (Screenshot 1) -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo-text"><i class="logo-icon">⚡</i> 24/7 ESPORTS</a>
+            <nav>
+                <ul>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#vision">Vision</a></li>
+                    <li><a href="#app">Find Gamers</a></li>
+                    <li><a href="#about">About</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="join-btn btn">Join Now</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (Screenshot 1) -->
+    <section class="hero">
+        <div class="container">
+            <span class="tag">● Launching Soon — Be First</span>
+            <h1>YOUR GAME.<br>YOUR COMMUNITY.<br><span class="cyan">24/7.</span></h1>
+            <p class="hero-subtitle">24/7 Esports is just getting started — and we want you in from day one. A community built by gamers, for gamers.</p>
+            <div class="hero-btns">
+                <a href="#app" class="btn btn-cyan">Get the App ↓</a>
+                <a href="#vision" class="btn btn-dark">Learn More ›</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIND GAMERS SECTION (Screenshot 2 & 3 - Modified) -->
+    <section id="app" class="find-gamers">
+        <div class="container info-split">
+            
+            <!-- Phone Mockup Container: Uses the GENERATED image -->
+            <div class="phone-mockup-container">
+                <!-- IMPORTANT: Ensure app-screenshot.png is in the same folder -->
+                <img src="app-screenshot.png" alt="24/7 Esports App Interface" class="phone-frame">
+            </div>
+
+            <div class="info-text">
+                <span class="tag">★ New App Launch</span>
+                <h2>Find Gamers<br>Near You</h2>
+                <p class="main-p">Tired of playing alone? The 24/7 Esports app helps you discover gamers in your area — connect, team up, and play together in real life or online. Your next squad is closer than you think.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon-v3">🌐</div>
+                        <div class="feature-card-text">
+                            <h4>Discover Local Gamers</h4>
+                            <p>Find players within your exact locality or region.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-v3">🔍</div>
+                        <div class="feature-card-text">
+                            <h4>Skill-Based Filtering</h4>
+                            <p>Filter by game, skill level, and availability.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-v3">💬</div>
+                        <div class="feature-card-text">
+                            <h4>Instant Chat</h4>
+                            <p>Chat, team up, and schedule gaming sessions seamlessly.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-v3">📅</div>
+                        <div class="feature-card-text">
+                            <h4>Local Events</h4>
+                            <p>Join local gaming events and meetups (Vision).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-btns">
+                    <a href="#" class="btn btn-cyan">Download App</a>
+                    <a href="#" class="btn btn-dark">Launch Web App</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- OUR VISION SECTION (Screenshot 3 & 4) -->
+    <section id="vision" class="vision">
+        <div class="container info-split">
+            <div class="vision-text-block">
+                <span class="tag">OUR VISION</span>
+                <h2>We believe every gamer deserves a community that pushes them further.</h2>
+                <p>24/7 Esports is built for players who want more — more competition, more connection, more growth. Whether you're a casual player or a seasoned pro, there's a place for you here.</p>
+            </div>
+            
+            <div class="vision-list">
+                <div class="list-item">
+                    <div class="list-icon">👥</div>
+                    <div class="list-content">
+                        <h4>Connect</h4>
+                        <p>Find teammates, make friends, and build lasting bonds with gamers who share your passion.</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-icon">📈</div>
+                    <div class="list-content">
+                        <h4>Grow</h4>
+                        <p>Level up your game with community insights, coaching resources, and a network that has your back.</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-icon">🏆</div>
+                    <div class="list-content">
+                        <h4>Compete</h4>
+                        <p>Our vision includes future tournaments, leaderboards, and opportunities to test your skills (Coming Soon).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GET STARTED SECTION (Screenshot 4 & 5 - Modified) -->
+    <section class="final-cta">
+        <div class="container">
+            <span class="tag">EARLY ACCESS</span>
+            <h2>Be Part of Something New.</h2>
+            <p class="main-p">24/7 Esports is just launching. Join early, shape the community, and be among the first to compete when tournaments go live (Future Roadmap).</p>
+            <a href="#" class="btn btn-cyan">Join 24/7 Esports — It's Free ›</a>
+        </div>
+    </section>
+
+    <!-- FOOTER (Screenshot 5) -->
+    <footer id="about">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-logo-block">
+                    <a href="#" class="logo-text"><i class="logo-icon">⚡</i> 24/7 ESPORTS</a>
+                    <p>Building the next generation of gaming communities. Compete, connect, and grow — 24 hours a day, 7 days a week.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">𝕏</a>
+                        <a href="#" class="social-icon">🎥</a>
+                        <a href="#" class="social-icon">📸</a>
+                        <a href="#" class="social-icon">👾</a>
+                    </div>
+                </div>
+
+                <div class="footer-nav">
+                    <h5>NAVIGATE</h5>
+                    <ul>
+                        <li><a href="#community">Community</a></li>
+                        <li><a href="#vision">Tournaments (Vision)</a></li>
+                        <li><a href="#app">Find Gamers App</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-cta">
+                    <h5>READY TO PLAY?</h5>
+                    <p>Join thousands of gamers (Vision) already preparing to connect on 24/7 Esports.</p>
+                    <a href="#" class="btn btn-dark">Join the Community</a>
+                </div>
+
+            </div>
+            
+            <div class="footer-bottom">
+                &copy; 2024 24/7 Esports. All Rights Reserved. Built for Gamers.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
