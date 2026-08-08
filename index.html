@@ -159,9 +159,7 @@
         .hero-btns { display: flex; gap: 20px; }
 
         /* --- BANNER SHOWCASE --- */
-        .banner-showcase {
-            text-align: center;
-        }
+        .banner-showcase { text-align: center; }
 
         .banner-wrapper {
             position: relative;
@@ -172,10 +170,66 @@
             margin-top: 20px;
         }
 
-        .banner-img {
+        .banner-img { width: 100%; height: auto; display: block; }
+
+        /* --- NEW APP SCREENSHOTS GALLERY --- */
+        .app-gallery-section {
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--grid-line);
+            border-bottom: 1px solid var(--grid-line);
+            text-align: center;
+        }
+
+        .gallery-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .gallery-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            align-items: center;
+        }
+
+        .gallery-card {
+            background-color: var(--bg-dark);
+            border: 1px solid var(--grid-line);
+            border-radius: 20px;
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(25, 217, 252, 0.2);
+            border-color: var(--accent-cyan-dim);
+        }
+
+        .gallery-img {
             width: 100%;
             height: auto;
+            border-radius: 12px;
             display: block;
+        }
+
+        .gallery-card h4 {
+            margin-top: 15px;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .gallery-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 5px;
         }
 
         /* --- INFO SECTIONS --- */
@@ -246,42 +300,13 @@
             background-color: #000;
         }
 
-        .video-frame {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        .video-frame { width: 100%; height: auto; display: block; }
 
         /* --- VISION --- */
         .vision { background-color: var(--bg-card); border-top: 1px solid var(--grid-line); border-bottom: 1px solid var(--grid-line); }
 
         .vision-text-block h2 { font-size: 3rem; font-weight: 800; line-height: 1.2; max-width: 600px; margin-bottom: 20px;}
         .vision-text-block p { color: var(--text-muted); max-width: 600px;}
-
-        .vision-list { display: flex; flex-direction: column; gap: 20px; }
-
-        .list-item {
-            background-color: var(--bg-dark);
-            border: 1px solid var(--grid-line);
-            padding: 25px;
-            border-radius: 12px;
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .list-icon {
-            width: 40px;
-            height: 40px;
-            color: var(--accent-cyan);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .list-content h4 { font-size: 1.1rem; margin-bottom: 5px; }
-        .list-content p { font-size: 0.9rem; color: var(--text-muted); }
 
         /* --- FINAL CTA --- */
         .final-cta { text-align: center; }
@@ -306,9 +331,6 @@
 
         .footer-logo-block .logo-text { margin-bottom: 20px; font-size: 1.3rem;}
         .footer-logo-block p { max-width: 300px; margin-bottom: 20px; }
-        
-        .social-links { display: flex; gap: 15px; }
-        .social-icon { color: var(--text-muted); font-size: 1.1rem; }
 
         .footer-nav h5, .footer-cta h5 { color: var(--text-main); margin-bottom: 15px; font-size: 1rem; }
         .footer-nav ul { display: flex; flex-direction: column; gap: 10px; }
@@ -317,11 +339,10 @@
 
         @media (max-width: 900px) {
             .hero h1 { font-size: 3rem; }
-            .info-split, .footer-grid { grid-template-columns: 1fr; gap: 50px; }
-            .feature-grid { grid-template-columns: 1fr; }
+            .info-split, .footer-grid, .gallery-grid { grid-template-columns: 1fr; gap: 40px; }
             nav ul { display: none; }
             .video-mockup-container { width: 280px; margin-top: 50px;}
-            .info-text h2, .vision-text-block h2, .final-cta h2 { font-size: 2.5rem; }
+            .info-text h2, .gallery-header h2, .final-cta h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -365,12 +386,41 @@
         </div>
     </section>
 
+    <!-- APP SCREENSHOW SHOWCASE GALLERY (NEW) -->
+    <section class="app-gallery-section">
+        <div class="container">
+            <div class="gallery-header">
+                <span class="tag">INSIDE THE APP</span>
+                <h2>Built for Smooth Matchmaking</h2>
+                <p>Explore real-time features engineered to bring squads together instantly.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="screen-radar.png" alt="Radar Lobby Search" class="gallery-img">
+                    <h4>Radar Lobby Search</h4>
+                    <p>Detect nearby players within your custom radius and create micro-lobbies.</p>
+                </div>
+                <div class="gallery-card">
+                    <img src="screen-profile.png" alt="Gamer Tag Profiles" class="gallery-img">
+                    <h4>Custom Profiles</h4>
+                    <p>Link your game IDs across BGMI, CoD, and GTA Online in one place.</p>
+                </div>
+                <div class="gallery-card">
+                    <img src="screen-chat.png" alt="Squad Center Chat" class="gallery-img">
+                    <h4>Squad Center</h4>
+                    <p>Direct chat and request management to assemble your team quickly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FIND GAMERS SECTION WITH PROMO VIDEO -->
     <section id="app" class="find-gamers">
         <div class="container info-split">
             
             <div class="video-mockup-container">
-                <video class="video-frame" autoplay loop muted playsinline poster="app-screenshot.png">
+                <video class="video-frame" autoplay loop muted playsinline poster="screen-radar.png">
                     <source src="promo.mp4" type="video/mp4">
                     Your browser does not support video playback.
                 </video>
