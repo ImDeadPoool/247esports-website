@@ -158,7 +158,7 @@
 
         .hero-btns { display: flex; gap: 20px; }
 
-        /* --- BANNER SHOWCASE (NEW) --- */
+        /* --- BANNER SHOWCASE --- */
         .banner-showcase {
             text-align: center;
         }
@@ -233,21 +233,23 @@
         .feature-card-text h4 { font-size: 1rem; margin-bottom: 5px; }
         .feature-card-text p { font-size: 0.85rem; color: var(--text-muted); }
 
-        /* --- APP PHONE FRAME --- */
-        .phone-mockup-container {
+        /* --- MOBILE & VIDEO CONTAINER --- */
+        .video-mockup-container {
             position: relative;
             width: 320px;
             margin: 0 auto;
             justify-self: center;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(25, 217, 252, 0.2);
+            border: 2px solid var(--grid-line);
+            background-color: #000;
         }
 
-        .phone-frame {
+        .video-frame {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 36px;
-            box-shadow: 0 0 60px rgba(25, 217, 252, 0.15); 
-            border: 2px solid #161B22;
         }
 
         /* --- VISION --- */
@@ -318,7 +320,7 @@
             .info-split, .footer-grid { grid-template-columns: 1fr; gap: 50px; }
             .feature-grid { grid-template-columns: 1fr; }
             nav ul { display: none; }
-            .phone-mockup-container { width: 280px; margin-top: 50px;}
+            .video-mockup-container { width: 280px; margin-top: 50px;}
             .info-text h2, .vision-text-block h2, .final-cta h2 { font-size: 2.5rem; }
         }
     </style>
@@ -358,17 +360,20 @@
     <section class="banner-showcase">
         <div class="container">
             <div class="banner-wrapper">
-                <img src="sidekick-banner.jpg" alt="Sidekick App Player Matchmaking Network" class="banner-img">
+                <img src="banner-2.jpeg" alt="Sidekick App Global Player Network" class="banner-img">
             </div>
         </div>
     </section>
 
-    <!-- FIND GAMERS SECTION -->
+    <!-- FIND GAMERS SECTION WITH PROMO VIDEO -->
     <section id="app" class="find-gamers">
         <div class="container info-split">
             
-            <div class="phone-mockup-container">
-                <img src="app-screenshot.png" alt="24/7 Esports App Interface" class="phone-frame">
+            <div class="video-mockup-container">
+                <video class="video-frame" autoplay loop muted playsinline poster="app-screenshot.png">
+                    <source src="promo.mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
             </div>
 
             <div class="info-text">
@@ -416,7 +421,7 @@
         </div>
     </section>
 
-    <!-- OUR VISION SECTION -->
+    <!-- OUR VISION SECTION WITH RADAR VIDEO -->
     <section id="vision" class="vision">
         <div class="container info-split">
             <div class="vision-text-block">
@@ -425,28 +430,11 @@
                 <p>24/7 Esports is built for players who want more — more competition, more connection, more growth.</p>
             </div>
             
-            <div class="vision-list">
-                <div class="list-item">
-                    <div class="list-icon">👥</div>
-                    <div class="list-content">
-                        <h4>Connect</h4>
-                        <p>Find teammates, make friends, and build lasting bonds with gamers who share your passion.</p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="list-icon">📈</div>
-                    <div class="list-content">
-                        <h4>Grow</h4>
-                        <p>Level up your game with community insights and resources.</p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="list-icon">🏆</div>
-                    <div class="list-content">
-                        <h4>Compete</h4>
-                        <p>Our vision includes future tournaments and competitive leaderboards (Coming Soon).</p>
-                    </div>
-                </div>
+            <div class="video-mockup-container">
+                <video class="video-frame" autoplay loop muted playsinline>
+                    <source src="loading-radar.mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
             </div>
         </div>
     </section>
@@ -457,7 +445,7 @@
             <span class="tag">EARLY ACCESS</span>
             <h2>Be Part of Something New.</h2>
             <p class="main-p">24/7 Esports is just launching. Join early, shape the community, and be among the first to compete when tournaments go live.</p>
-            <a href="#" class="btn btn-cyan">Join 24/7 Esports — It's Free ›</a>
+            <a href="https://drive.google.com/uc?export=download&id=1kFv0Podf9x5mB7rQAYGZrzgtHWbYHi3d" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Join 24/7 Esports — It's Free ›</a>
         </div>
     </section>
 
@@ -483,7 +471,7 @@
                 <div class="footer-cta">
                     <h5>READY TO PLAY?</h5>
                     <p>Join gamers preparing to connect on 24/7 Esports.</p>
-                    <a href="#" class="btn btn-dark">Join the Community</a>
+                    <a href="https://drive.google.com/uc?export=download&id=1kFv0Podf9x5mB7rQAYGZrzgtHWbYHi3d" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Join the Community</a>
                 </div>
             </div>
             <div class="footer-bottom">
