@@ -133,14 +133,21 @@
         }
         .join-btn:hover { background-color: rgba(25, 217, 252, 0.2); }
 
-        /* --- HERO --- */
+        /* --- MERGED HERO SECTION --- */
         .hero {
             padding-top: 160px;
-            text-align: left;
+            padding-bottom: 80px;
+        }
+
+        .hero-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 4rem;
             line-height: 1.1;
             font-weight: 800;
             margin-bottom: 20px;
@@ -150,27 +157,26 @@
         .hero h1 span.cyan { color: var(--accent-cyan); }
 
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .hero-btns { display: flex; gap: 20px; }
 
-        /* --- BANNER SHOWCASE --- */
-        .banner-showcase { text-align: center; }
-
-        .banner-wrapper {
+        .hero-banner-wrapper {
             position: relative;
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid var(--grid-line);
-            box-shadow: 0 0 40px rgba(25, 217, 252, 0.15);
-            margin-top: 20px;
+            box-shadow: 0 0 50px rgba(25, 217, 252, 0.2);
         }
 
-        .banner-img { width: 100%; height: auto; display: block; }
+        .hero-banner-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
         /* --- APP SCREENSHOTS GALLERY --- */
         .app-gallery-section {
@@ -368,6 +374,7 @@
         .footer-bottom { text-align: center; border-top: 1px solid var(--grid-line); padding-top: 30px; font-size: 0.8rem;}
 
         @media (max-width: 900px) {
+            .hero-split { grid-template-columns: 1fr; gap: 40px; }
             .hero h1 { font-size: 3rem; }
             .info-split, .footer-grid, .gallery-grid { grid-template-columns: 1fr; gap: 40px; }
             nav ul { display: none; }
@@ -394,24 +401,23 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION WITH INTEGRATED BANNER -->
     <section class="hero">
         <div class="container">
-            <span class="tag">● Launching Soon — Be First</span>
-            <h1>YOUR GAME.<br>YOUR COMMUNITY.<br><span class="cyan">24/7.</span></h1>
-            <p class="hero-subtitle">24/7 Esports is just getting started — and we want you in from day one. A community built by gamers, for gamers.</p>
-            <div class="hero-btns">
-                <a href="https://drive.google.com/uc?export=download&id=1kFv0Podf9x5mB7rQAYGZrzgtHWbYHi3d" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Get the App ↓</a>
-                <a href="#vision" class="btn btn-dark">Learn More ›</a>
-            </div>
-        </div>
-    </section>
+            <div class="hero-split">
+                <div class="hero-text-block">
+                    <span class="tag">● Launching Soon — Be First</span>
+                    <h1>YOUR GAME.<br>YOUR COMMUNITY.<br><span class="cyan">24/7.</span></h1>
+                    <p class="hero-subtitle">24/7 Esports is just getting started — and we want you in from day one. A community built by gamers, for gamers.</p>
+                    <div class="hero-btns">
+                        <a href="https://drive.google.com/uc?export=download&id=1kFv0Podf9x5mB7rQAYGZrzgtHWbYHi3d" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Get the App ↓</a>
+                        <a href="#vision" class="btn btn-dark">Learn More ›</a>
+                    </div>
+                </div>
 
-    <!-- SIDEKICK APP BANNER SHOWCASE -->
-    <section class="banner-showcase">
-        <div class="container">
-            <div class="banner-wrapper">
-                <img src="banner-2.jpeg" alt="Sidekick App Global Player Network" class="banner-img">
+                <div class="hero-banner-wrapper">
+                    <img src="banner-2.jpeg" alt="Sidekick App Global Player Network" class="hero-banner-img">
+                </div>
             </div>
         </div>
     </section>
