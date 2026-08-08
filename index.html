@@ -172,7 +172,7 @@
 
         .banner-img { width: 100%; height: auto; display: block; }
 
-        /* --- NEW APP SCREENSHOTS GALLERY --- */
+        /* --- APP SCREENSHOTS GALLERY --- */
         .app-gallery-section {
             background-color: var(--bg-card);
             border-top: 1px solid var(--grid-line);
@@ -303,10 +303,40 @@
         .video-frame { width: 100%; height: auto; display: block; }
 
         /* --- VISION --- */
-        .vision { background-color: var(--bg-card); border-top: 1px solid var(--grid-line); border-bottom: 1px solid var(--grid-line); }
+        .vision { 
+            background-color: var(--bg-card); 
+            border-top: 1px solid var(--grid-line); 
+            border-bottom: 1px solid var(--grid-line); 
+        }
 
         .vision-text-block h2 { font-size: 3rem; font-weight: 800; line-height: 1.2; max-width: 600px; margin-bottom: 20px;}
         .vision-text-block p { color: var(--text-muted); max-width: 600px;}
+
+        .vision-list { display: flex; flex-direction: column; gap: 20px; }
+
+        .list-item {
+            background-color: var(--bg-dark);
+            border: 1px solid var(--grid-line);
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .list-icon {
+            width: 40px;
+            height: 40px;
+            color: var(--accent-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .list-content h4 { font-size: 1.1rem; margin-bottom: 5px; }
+        .list-content p { font-size: 0.9rem; color: var(--text-muted); }
 
         /* --- FINAL CTA --- */
         .final-cta { text-align: center; }
@@ -342,7 +372,7 @@
             .info-split, .footer-grid, .gallery-grid { grid-template-columns: 1fr; gap: 40px; }
             nav ul { display: none; }
             .video-mockup-container { width: 280px; margin-top: 50px;}
-            .info-text h2, .gallery-header h2, .final-cta h2 { font-size: 2.2rem; }
+            .info-text h2, .gallery-header h2, .final-cta h2, .vision-text-block h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -386,7 +416,7 @@
         </div>
     </section>
 
-    <!-- APP SCREENSHOW SHOWCASE GALLERY (NEW) -->
+    <!-- APP SCREENSHOT SHOWCASE GALLERY -->
     <section class="app-gallery-section">
         <div class="container">
             <div class="gallery-header">
@@ -471,20 +501,37 @@
         </div>
     </section>
 
-    <!-- OUR VISION SECTION WITH RADAR VIDEO -->
+    <!-- OUR VISION SECTION -->
     <section id="vision" class="vision">
         <div class="container info-split">
             <div class="vision-text-block">
                 <span class="tag">OUR VISION</span>
                 <h2>We believe every gamer deserves a community that pushes them further.</h2>
-                <p>24/7 Esports is built for players who want more — more competition, more connection, more growth.</p>
+                <p>24/7 Esports is built for players who want more — more competition, more connection, more growth. Whether you're a casual player or a seasoned pro, there's a place for you here.</p>
             </div>
             
-            <div class="video-mockup-container">
-                <video class="video-frame" autoplay loop muted playsinline>
-                    <source src="loading-radar.mp4" type="video/mp4">
-                    Your browser does not support video playback.
-                </video>
+            <div class="vision-list">
+                <div class="list-item">
+                    <div class="list-icon">👥</div>
+                    <div class="list-content">
+                        <h4>Connect</h4>
+                        <p>Find teammates, make friends, and build lasting bonds with gamers who share your passion.</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-icon">📈</div>
+                    <div class="list-content">
+                        <h4>Grow</h4>
+                        <p>Level up your game with community insights, coaching resources, and a network that has your back.</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-icon">🏆</div>
+                    <div class="list-content">
+                        <h4>Compete</h4>
+                        <p>Our vision includes future tournaments, leaderboards, and opportunities to test your skills (Coming Soon).</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
