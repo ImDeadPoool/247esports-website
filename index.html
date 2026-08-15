@@ -134,12 +134,11 @@
         }
         .join-btn:hover { background-color: rgba(25, 217, 252, 0.2); }
 
-        /* --- MASSIVE HERO SECTION WITH EXPANDED BANNER --- */
+        /* --- HERO SECTION --- */
         .hero {
             padding-top: 140px;
             padding-bottom: 70px;
             position: relative;
-            overflow: visible;
         }
 
         .hero-split {
@@ -149,9 +148,7 @@
             align-items: center;
         }
 
-        .hero-text-block {
-            z-index: 2;
-        }
+        .hero-text-block { z-index: 2; }
 
         .hero h1 {
             font-size: 4.2rem;
@@ -182,7 +179,6 @@
             z-index: 1;
         }
 
-        /* Large scaled banner that bleeds across the right */
         .hero-banner-img {
             width: 140%;
             max-width: 900px;
@@ -200,7 +196,13 @@
             border-top: 1px solid var(--grid-line);
             border-bottom: 1px solid var(--grid-line);
             text-align: center;
-            padding: 65px 0;
+            padding: 80px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-header {
+            margin-bottom: 45px;
         }
 
         .gallery-header h2 {
@@ -212,47 +214,67 @@
         .gallery-header p {
             color: var(--text-muted);
             font-size: 1rem;
-            margin-bottom: 40px;
         }
 
         .gallery-grid-5 {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
+            gap: 20px;
             align-items: stretch;
         }
 
         .gallery-card {
             background-color: var(--bg-dark);
             border: 1px solid var(--grid-line);
-            border-radius: 14px;
-            padding: 12px;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border-radius: 16px;
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
         }
 
         .gallery-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 8px 25px rgba(25, 217, 252, 0.2);
-            border-color: var(--accent-cyan-dim);
+            border-color: var(--accent-cyan);
+        }
+
+        .gallery-img-wrapper {
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .gallery-img {
             width: 100%;
-            height: auto;
-            border-radius: 10px;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             display: block;
         }
 
-        .gallery-card h4 {
-            margin-top: 12px;
-            font-size: 0.95rem;
-            color: var(--text-main);
+        .gallery-card-content {
+            margin-top: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
-        .gallery-card p {
-            font-size: 0.78rem;
+        .gallery-card-content h4 {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .gallery-card-content p {
+            font-size: 0.8rem;
             color: var(--text-muted);
-            margin-top: 3px;
         }
 
         /* --- INFO SECTIONS --- */
@@ -462,7 +484,7 @@
         </div>
     </header>
 
-    <!-- HERO SECTION WITH EXPANDED BANNER -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
             <div class="hero-split">
@@ -484,7 +506,7 @@
     </section>
 
     <!-- 5-SCREEN SHOWCASE GALLERY -->
-    <section class="app-gallery-section">
+    <section id="community" class="app-gallery-section">
         <div class="container">
             <div class="gallery-header">
                 <span class="tag">INSIDE THE APP</span>
@@ -494,29 +516,49 @@
 
             <div class="gallery-grid-5">
                 <div class="gallery-card">
-                    <img src="screen-1.png" alt="Radar Lobby" class="gallery-img">
-                    <h4>Radar Lobby</h4>
-                    <p>Radius player discovery.</p>
+                    <div class="gallery-img-wrapper">
+                        <img src="screen-1.png" alt="Radar Lobby" class="gallery-img">
+                    </div>
+                    <div class="gallery-card-content">
+                        <h4>Radar Lobby</h4>
+                        <p>Radius player discovery.</p>
+                    </div>
                 </div>
                 <div class="gallery-card">
-                    <img src="screen-2.png" alt="Gamer Profile" class="gallery-img">
-                    <h4>Gamer Profile</h4>
-                    <p>Cross-game identity hub.</p>
+                    <div class="gallery-img-wrapper">
+                        <img src="screen-2.png" alt="Gamer Profile" class="gallery-img">
+                    </div>
+                    <div class="gallery-card-content">
+                        <h4>Gamer Profile</h4>
+                        <p>Cross-game identity hub.</p>
+                    </div>
                 </div>
                 <div class="gallery-card">
-                    <img src="screen-3.png" alt="Squad Center" class="gallery-img">
-                    <h4>Squad Center</h4>
-                    <p>Direct chats & requests.</p>
+                    <div class="gallery-img-wrapper">
+                        <img src="screen-3.png" alt="Squad Center" class="gallery-img">
+                    </div>
+                    <div class="gallery-card-content">
+                        <h4>Squad Center</h4>
+                        <p>Direct chats & requests.</p>
+                    </div>
                 </div>
                 <div class="gallery-card">
-                    <img src="screen-4.png" alt="Filter Options" class="gallery-img">
-                    <h4>Match Filters</h4>
-                    <p>Skill & game tuning.</p>
+                    <div class="gallery-img-wrapper">
+                        <img src="screen-4.png" alt="Filter Options" class="gallery-img">
+                    </div>
+                    <div class="gallery-card-content">
+                        <h4>Match Filters</h4>
+                        <p>Skill & game tuning.</p>
+                    </div>
                 </div>
                 <div class="gallery-card">
-                    <img src="screen-5.png" alt="Pin Management" class="gallery-img">
-                    <h4>Pin Management</h4>
-                    <p>Host dynamic lobbies.</p>
+                    <div class="gallery-img-wrapper">
+                        <img src="screen-5.png" alt="Pin Management" class="gallery-img">
+                    </div>
+                    <div class="gallery-card-content">
+                        <h4>Pin Management</h4>
+                        <p>Host dynamic lobbies.</p>
+                    </div>
                 </div>
             </div>
         </div>
