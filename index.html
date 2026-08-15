@@ -249,8 +249,8 @@
         /* --- INFO SECTIONS --- */
         .info-split {
             display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 40px;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
             align-items: center;
         }
 
@@ -302,15 +302,22 @@
         .feature-card-text h4 { font-size: 0.88rem; margin-bottom: 3px; }
         .feature-card-text p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
 
-        /* --- APP MOCKUP FRAME (CLEAN SCREENSHOT) --- */
+        /* --- ENLARGED APP MOCKUP FRAME --- */
         .app-mockup-frame {
-            width: 270px;
+            width: 100%;
+            max-width: 420px;
             margin: 0 auto;
-            border-radius: 24px;
+            border-radius: 26px;
             overflow: hidden;
             border: 2px solid var(--grid-line);
-            box-shadow: 0 0 40px rgba(25, 217, 252, 0.15);
+            box-shadow: 0 0 55px rgba(25, 217, 252, 0.25);
             background-color: #000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .app-mockup-frame:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 70px rgba(25, 217, 252, 0.35);
         }
 
         .app-mockup-frame img {
@@ -319,20 +326,31 @@
             display: block;
         }
 
-        /* --- VIDEO MOCKUP CONTAINER --- */
+        /* --- ENLARGED VIDEO MOCKUP CONTAINER --- */
         .video-mockup-container {
             position: relative;
-            width: 300px;
+            width: 100%;
+            max-width: 500px;
             margin: 0 auto;
             justify-self: center;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 0 45px rgba(25, 217, 252, 0.2);
+            box-shadow: 0 0 60px rgba(25, 217, 252, 0.3);
             border: 2px solid var(--grid-line);
             background-color: #000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .video-frame { width: 100%; height: auto; display: block; }
+        .video-mockup-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 75px rgba(25, 217, 252, 0.4);
+        }
+
+        .video-frame { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+        }
 
         /* --- VISION --- */
         .vision { 
@@ -340,6 +358,13 @@
             border-top: 1px solid var(--grid-line); 
             border-bottom: 1px solid var(--grid-line); 
             padding: 60px 0;
+        }
+
+        .vision-split {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 45px;
+            align-items: center;
         }
 
         .vision-text-block h2 { font-size: 2.3rem; font-weight: 800; line-height: 1.2; margin-bottom: 15px;}
@@ -405,12 +430,12 @@
         }
 
         @media (max-width: 900px) {
-            .hero-split, .info-split, .footer-grid, .feature-grid { grid-template-columns: 1fr; gap: 30px; }
+            .hero-split, .info-split, .vision-split, .footer-grid, .feature-grid { grid-template-columns: 1fr; gap: 30px; }
             .hero h1 { font-size: 2.6rem; }
             .hero-banner-img { width: 100%; }
             .gallery-grid-5 { grid-template-columns: 1fr; }
             nav ul { display: none; }
-            .app-mockup-frame, .video-mockup-container { width: 240px; }
+            .app-mockup-frame, .video-mockup-container { max-width: 320px; }
             .info-text h2, .gallery-header h2, .final-cta h2, .vision-text-block h2 { font-size: 1.9rem; }
         }
     </style>
@@ -560,9 +585,9 @@
         </div>
     </section>
 
-    <!-- OUR VISION SECTION (WITH PREVIEW VIDEO) -->
+    <!-- OUR VISION SECTION (WITH LARGER PREVIEW VIDEO) -->
     <section id="vision" class="vision">
-        <div class="container info-split">
+        <div class="container vision-split">
             <div class="vision-text-block">
                 <span class="tag">OUR VISION</span>
                 <h2>We believe every gamer deserves a community that pushes them further.</h2>
