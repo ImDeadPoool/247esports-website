@@ -13,6 +13,7 @@
             --text-muted: #8B949E;
             --accent-cyan: #19D9FC;
             --accent-cyan-dim: #13A5BF;
+            --accent-purple: #9D4EDD;
             --grid-line: #161B22;
         }
 
@@ -70,6 +71,13 @@
         }
         .btn-cyan:hover { background-color: #fff; }
 
+        .btn-purple {
+            background-color: var(--accent-purple);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(157, 78, 221, 0.4);
+        }
+        .btn-purple:hover { background-color: #b56ff5; color: #fff; }
+
         .btn-dark {
             background-color: transparent;
             color: var(--text-main);
@@ -87,6 +95,12 @@
             font-weight: 600;
             margin-bottom: 15px;
             border: 1px solid #30363D;
+        }
+
+        .tag-purple {
+            color: #c77dff;
+            border-color: rgba(157, 78, 221, 0.4);
+            background-color: rgba(157, 78, 221, 0.1);
         }
 
         section { padding: 60px 0; }
@@ -168,7 +182,7 @@
             line-height: 1.6;
         }
 
-        .hero-btns { display: flex; gap: 16px; }
+        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
 
         .hero-banner-wrapper {
             position: relative;
@@ -277,6 +291,102 @@
             color: var(--text-muted);
         }
 
+        /* --- BLOCKY GAME SHOWCASE SECTION --- */
+        .blocky-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, rgba(157, 78, 221, 0.05) 50%, var(--bg-dark) 100%);
+            border-bottom: 1px solid var(--grid-line);
+            padding: 80px 0;
+        }
+
+        .blocky-split {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .blocky-text h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+
+        .blocky-text h2 span {
+            color: #c77dff;
+            text-shadow: 0 0 20px rgba(157, 78, 221, 0.4);
+        }
+
+        .blocky-text .main-p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .blocky-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .blocky-stat-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(157, 78, 221, 0.2);
+            padding: 16px;
+            border-radius: 12px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .blocky-icon {
+            width: 36px;
+            height: 36px;
+            color: #c77dff;
+            background: rgba(157, 78, 221, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+
+        .blocky-stat-card h4 {
+            font-size: 0.95rem;
+            margin-bottom: 3px;
+        }
+
+        .blocky-stat-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .blocky-mockup-frame {
+            position: relative;
+            width: 100%;
+            max-width: 440px;
+            margin: 0 auto;
+            border-radius: 26px;
+            overflow: hidden;
+            border: 2px solid rgba(157, 78, 221, 0.3);
+            box-shadow: 0 0 60px rgba(157, 78, 221, 0.25);
+            background-color: #0c0814;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blocky-mockup-frame:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 80px rgba(157, 78, 221, 0.4);
+        }
+
+        .blocky-mockup-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         /* --- INFO SECTIONS --- */
         .info-split {
             display: grid;
@@ -333,7 +443,7 @@
         .feature-card-text h4 { font-size: 0.92rem; margin-bottom: 3px; }
         .feature-card-text p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
 
-        /* --- APP MOCKUP FRAME --- */
+        /* --- VIDEO / MOCKUP CONTAINERS --- */
         .app-mockup-frame {
             width: 100%;
             max-width: 440px;
@@ -343,18 +453,39 @@
             border: 2px solid var(--grid-line);
             box-shadow: 0 0 55px rgba(25, 217, 252, 0.25);
             background-color: #000;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .app-mockup-frame:hover { transform: scale(1.02); }
+        .app-mockup-frame:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 70px rgba(25, 217, 252, 0.35);
+        }
 
-        .app-mockup-frame img {
+        .video-mockup-container {
+            position: relative;
             width: 100%;
-            height: auto;
-            display: block;
+            max-width: 680px;
+            margin: 0 auto;
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: 0 0 75px rgba(25, 217, 252, 0.35);
+            border: 2px solid var(--grid-line);
+            background-color: #000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* --- VISION (ENLARGED VIDEO CONTAINER) --- */
+        .video-mockup-container:hover { 
+            transform: scale(1.02); 
+            box-shadow: 0 0 90px rgba(25, 217, 252, 0.45);
+        }
+
+        .video-frame { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+        }
+
+        /* --- VISION --- */
         .vision { 
             background-color: var(--bg-card); 
             border-top: 1px solid var(--grid-line); 
@@ -398,30 +529,6 @@
         .list-content h4 { font-size: 0.98rem; margin-bottom: 2px; }
         .list-content p { font-size: 0.85rem; color: var(--text-muted); }
 
-        .video-mockup-container {
-            position: relative;
-            width: 100%;
-            max-width: 680px;
-            margin: 0 auto;
-            border-radius: 26px;
-            overflow: hidden;
-            box-shadow: 0 0 75px rgba(25, 217, 252, 0.35);
-            border: 2px solid var(--grid-line);
-            background-color: #000;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .video-mockup-container:hover { 
-            transform: scale(1.02); 
-            box-shadow: 0 0 90px rgba(25, 217, 252, 0.45);
-        }
-
-        .video-frame { 
-            width: 100%; 
-            height: auto; 
-            display: block; 
-        }
-
         /* --- FINAL CTA --- */
         .final-cta { text-align: center; padding: 70px 0; }
         .final-cta h2 { font-size: 3rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 14px; }
@@ -454,17 +561,17 @@
         @media (max-width: 1024px) {
             .gallery-grid-5 { grid-template-columns: repeat(3, 1fr); }
             .hero-banner-img { width: 110%; transform: scale(1); }
-            .vision-split { grid-template-columns: 1fr; }
+            .vision-split, .blocky-split { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 900px) {
-            .hero-split, .info-split, .vision-split, .footer-grid, .feature-grid { grid-template-columns: 1fr; gap: 30px; }
+            .hero-split, .info-split, .vision-split, .blocky-split, .footer-grid, .feature-grid, .blocky-stats-grid { grid-template-columns: 1fr; gap: 30px; }
             .hero h1 { font-size: 2.8rem; }
             .hero-banner-img { width: 100%; transform: scale(1); }
             .gallery-grid-5 { grid-template-columns: 1fr; }
             nav ul { display: none; }
-            .app-mockup-frame, .video-mockup-container { max-width: 100%; }
-            .info-text h2, .gallery-header h2, .final-cta h2, .vision-text-block h2 { font-size: 2rem; }
+            .app-mockup-frame, .video-mockup-container, .blocky-mockup-frame { max-width: 100%; }
+            .info-text h2, .gallery-header h2, .final-cta h2, .vision-text-block h2, .blocky-text h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -476,6 +583,7 @@
             <a href="#" class="logo-text"><i class="logo-icon">⚡</i> 24/7 ESPORTS</a>
             <nav>
                 <ul>
+                    <li><a href="#blocky">Blocky Game</a></li>
                     <li><a href="#community">Community</a></li>
                     <li><a href="#vision">Vision</a></li>
                     <li><a href="#app">Find Gamers</a></li>
@@ -495,8 +603,8 @@
                     <h1>YOUR GAME.<br>YOUR COMMUNITY.<br><span class="cyan">24/7.</span></h1>
                     <p class="hero-subtitle">24/7 Esports is just getting started — and we want you in from day one. A community built by gamers, for gamers.</p>
                     <div class="hero-btns">
-                        <a href="https://drive.google.com/uc?export=download&id=1kFv0Podf9x5mB7rQAYGZrzgtHWbYHi3d" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Get the App ↓</a>
-                        <a href="#vision" class="btn btn-dark">Learn More ›</a>
+                        <a href="https://drive.google.com/uc?export=download&id=1kFv0Podf9x5mB7rQAYGZrzgtHWbYHi3d" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Get Sidekick App ↓</a>
+                        <a href="#blocky" class="btn btn-purple">Play Blocky 🎮</a>
                     </div>
                 </div>
 
@@ -566,12 +674,69 @@
         </div>
     </section>
 
-    <!-- FIND GAMERS SECTION -->
+    <!-- FEATURED GAME: BLOCKY SECTION (NEW) -->
+    <section id="blocky" class="blocky-section">
+        <div class="container">
+            <div class="blocky-split">
+                <div class="blocky-text">
+                    <span class="tag tag-purple">★ FEATURED GAME</span>
+                    <h2>Play <span>Blocky</span> — The Ultimate 2D Grid Challenge</h2>
+                    <p class="main-p">Step into high-speed grid gameplay. Outmaneuver obstacles, execute precise turns, and climb the real-time global leaderboard against players worldwide.</p>
+                    
+                    <div class="blocky-stats-grid">
+                        <div class="blocky-stat-card">
+                            <div class="blocky-icon">🌍</div>
+                            <div>
+                                <h4>Global Leaderboards</h4>
+                                <p>Compete real-time for top world ranking spots.</p>
+                            </div>
+                        </div>
+                        <div class="blocky-stat-card">
+                            <div class="blocky-icon">⚡</div>
+                            <div>
+                                <h4>Fast 2D Grid Action</h4>
+                                <p>Responsive mechanics with instant replay loop.</p>
+                            </div>
+                        </div>
+                        <div class="blocky-stat-card">
+                            <div class="blocky-icon">🏆</div>
+                            <div>
+                                <h4>Weekly Tournaments</h4>
+                                <p>Score milestones to unlock special badges.</p>
+                            </div>
+                        </div>
+                        <div class="blocky-stat-card">
+                            <div class="blocky-icon">📱</div>
+                            <div>
+                                <h4>Lightweight & Smooth</h4>
+                                <p>Optimized for ultra-smooth 60fps performance.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-btns">
+                        <!-- REPLACE THE HREF WITH YOUR BLOCKY GOOGLE DRIVE / APK DOWNLOAD LINK -->
+                        <a href="https://drive.google.com/uc?export=download&id=YOUR_BLOCKY_FILE_ID" target="_blank" rel="noopener noreferrer" class="btn btn-purple">Download Blocky APK ↓</a>
+                        <a href="#community" class="btn btn-dark">View 24/7 Roster ›</a>
+                    </div>
+                </div>
+
+                <div class="blocky-mockup-frame">
+                    <img src="blocky-preview.png" alt="Blocky 2D Grid Game Preview" onerror="this.src='screen-4.png'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIND GAMERS SECTION WITH RADAR VIDEO -->
     <section id="app" class="find-gamers">
         <div class="container info-split">
             
             <div class="app-mockup-frame">
-                <img src="screen-1.png" alt="Sidekick App Radar Preview">
+                <video class="video-frame" autoplay loop muted playsinline poster="screen-1.png">
+                    <source src="radar-preview.mp4" type="video/mp4">
+                    Your browser does not support video playback.
+                </video>
             </div>
 
             <div class="info-text">
@@ -633,7 +798,7 @@
         </div>
     </section>
 
-    <!-- OUR VISION SECTION (WITH LARGER PREVIEW VIDEO) -->
+    <!-- OUR VISION SECTION -->
     <section id="vision" class="vision">
         <div class="container vision-split">
             <div class="vision-text-block">
@@ -697,6 +862,7 @@
                 <div class="footer-nav">
                     <h5>NAVIGATE</h5>
                     <ul>
+                        <li><a href="#blocky">Blocky Game</a></li>
                         <li><a href="#community">Community</a></li>
                         <li><a href="#vision">Tournaments (Vision)</a></li>
                         <li><a href="#app">Find Gamers App</a></li>
