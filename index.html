@@ -354,40 +354,17 @@
             display: block;
         }
 
-        /* --- VIDEO MOCKUP CONTAINER --- */
-        .video-mockup-container {
-            position: relative;
-            width: 100%;
-            max-width: 520px;
-            margin: 0 auto;
-            justify-self: center;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 0 60px rgba(25, 217, 252, 0.3);
-            border: 2px solid var(--grid-line);
-            background-color: #000;
-            transition: transform 0.3s ease;
-        }
-
-        .video-mockup-container:hover { transform: scale(1.02); }
-
-        .video-frame { 
-            width: 100%; 
-            height: auto; 
-            display: block; 
-        }
-
-        /* --- VISION --- */
+        /* --- VISION (ENLARGED VIDEO CONTAINER) --- */
         .vision { 
             background-color: var(--bg-card); 
             border-top: 1px solid var(--grid-line); 
             border-bottom: 1px solid var(--grid-line); 
-            padding: 65px 0;
+            padding: 70px 0;
         }
 
         .vision-split {
             display: grid;
-            grid-template-columns: 1fr 1.1fr;
+            grid-template-columns: 0.9fr 1.3fr;
             gap: 50px;
             align-items: center;
         }
@@ -421,6 +398,30 @@
         .list-content h4 { font-size: 0.98rem; margin-bottom: 2px; }
         .list-content p { font-size: 0.85rem; color: var(--text-muted); }
 
+        .video-mockup-container {
+            position: relative;
+            width: 100%;
+            max-width: 680px;
+            margin: 0 auto;
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: 0 0 75px rgba(25, 217, 252, 0.35);
+            border: 2px solid var(--grid-line);
+            background-color: #000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-mockup-container:hover { 
+            transform: scale(1.02); 
+            box-shadow: 0 0 90px rgba(25, 217, 252, 0.45);
+        }
+
+        .video-frame { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+        }
+
         /* --- FINAL CTA --- */
         .final-cta { text-align: center; padding: 70px 0; }
         .final-cta h2 { font-size: 3rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 14px; }
@@ -453,6 +454,7 @@
         @media (max-width: 1024px) {
             .gallery-grid-5 { grid-template-columns: repeat(3, 1fr); }
             .hero-banner-img { width: 110%; transform: scale(1); }
+            .vision-split { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 900px) {
@@ -461,7 +463,7 @@
             .hero-banner-img { width: 100%; transform: scale(1); }
             .gallery-grid-5 { grid-template-columns: 1fr; }
             nav ul { display: none; }
-            .app-mockup-frame, .video-mockup-container { max-width: 320px; }
+            .app-mockup-frame, .video-mockup-container { max-width: 100%; }
             .info-text h2, .gallery-header h2, .final-cta h2, .vision-text-block h2 { font-size: 2rem; }
         }
     </style>
@@ -631,7 +633,7 @@
         </div>
     </section>
 
-    <!-- OUR VISION SECTION -->
+    <!-- OUR VISION SECTION (WITH LARGER PREVIEW VIDEO) -->
     <section id="vision" class="vision">
         <div class="container vision-split">
             <div class="vision-text-block">
