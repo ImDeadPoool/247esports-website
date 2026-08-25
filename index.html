@@ -416,6 +416,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 24px;
+            align-items: stretch;
         }
 
         .game-item-card {
@@ -446,23 +447,25 @@
             transform: translateY(-4px);
         }
 
+        /* Clean Uncropped Preview Frame */
         .game-img-preview {
             width: 100%;
-            aspect-ratio: 16 / 9;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
             margin-bottom: 16px;
-            background: #000;
+            background: #090c14;
             border: 1px solid var(--border-subtle);
             display: flex;
             align-items: center;
             justify-content: center;
+            min-height: 220px;
         }
 
         .game-img-preview img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            max-height: 280px;
+            object-fit: contain;
             display: block;
         }
 
@@ -840,7 +843,7 @@
                     <div>
                         <span class="tag tag-purple" style="margin-bottom: 10px;">● AVAILABLE NOW</span>
                         <div class="game-img-preview">
-                            <img src="blocky-banner.png" alt="Blocky 2D Grid Game">
+                            <img src="blocky-banner.png" alt="Blocky 2D Grid Game - Addictive Block Puzzle Fun">
                         </div>
                         <div class="game-info-block">
                             <h3>Blocky: 2D Grid Challenge</h3>
