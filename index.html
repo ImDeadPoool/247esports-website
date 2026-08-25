@@ -20,6 +20,8 @@
             --accent-cyan-dim: rgba(0, 240, 255, 0.2);
             --accent-purple: #A855F7;
             --accent-purple-dim: rgba(168, 85, 247, 0.2);
+            --accent-orange: #FF8C00;
+            --accent-orange-dim: rgba(255, 140, 0, 0.2);
             --border-subtle: rgba(255, 255, 255, 0.08);
             --border-hover: rgba(0, 240, 255, 0.4);
             --font-heading: 'Outfit', -apple-system, sans-serif;
@@ -32,9 +34,7 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-dark);
@@ -45,7 +45,6 @@
             letter-spacing: -0.01em;
         }
 
-        /* Subtle Cyber Grid Background */
         body::before {
             content: "";
             position: fixed;
@@ -61,21 +60,9 @@
             pointer-events: none;
         }
 
-        /* Ambient Glow Spotlights */
-        .ambient-glow {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
         a { text-decoration: none; color: inherit; transition: all 0.25s ease; }
         ul { list-style: none; }
 
-        /* --- GLOBAL UTILITIES --- */
         .container {
             max-width: 1280px;
             margin: 0 auto;
@@ -86,15 +73,13 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 13px 28px;
+            padding: 13px 26px;
             border-radius: 10px;
             font-weight: 600;
             cursor: pointer;
             border: none;
             font-size: 0.95rem;
             transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
         }
 
         .btn-cyan {
@@ -119,6 +104,14 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(168, 85, 247, 0.5);
             background-color: #c084fc;
+        }
+
+        .btn-orange-disabled {
+            background: rgba(255, 140, 0, 0.15);
+            color: #FFB347;
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            cursor: not-allowed;
+            font-weight: 600;
         }
 
         .btn-dark {
@@ -153,6 +146,12 @@
             color: #d8b4fe;
             border-color: var(--accent-purple-dim);
             background: rgba(168, 85, 247, 0.1);
+        }
+
+        .tag-orange {
+            color: #ffb74d;
+            border-color: var(--accent-orange-dim);
+            background: rgba(255, 140, 0, 0.1);
         }
 
         section { padding: 80px 0; position: relative; }
@@ -276,9 +275,7 @@
             padding: 90px 0;
         }
 
-        .gallery-header {
-            margin-bottom: 50px;
-        }
+        .gallery-header { margin-bottom: 50px; }
 
         .gallery-header h2 {
             font-family: var(--font-heading);
@@ -354,108 +351,155 @@
             color: var(--text-muted);
         }
 
-        /* --- BLOCKY GAME SHOWCASE SECTION --- */
-        .blocky-section {
-            background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.08) 0%, rgba(6, 8, 12, 1) 75%);
+        /* --- 24/7 ARCADE (INDIE GAMES) SECTION --- */
+        .arcade-section {
+            background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.06) 0%, rgba(6, 8, 12, 1) 80%);
             border-bottom: 1px solid var(--border-subtle);
-            padding: 90px 0;
+            padding: 100px 0;
         }
 
-        .blocky-split {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            gap: 60px;
-            align-items: center;
+        .arcade-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
         }
 
-        .blocky-text h2 {
+        .arcade-header h2 {
             font-family: var(--font-heading);
             font-size: 3rem;
             font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 16px;
             letter-spacing: -1px;
+            margin-bottom: 14px;
         }
 
-        .blocky-text h2 span {
-            color: #d8b4fe;
-            text-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
-        }
-
-        .blocky-text .main-p {
-            font-size: 1.1rem;
+        .arcade-header p {
             color: var(--text-muted);
-            margin-bottom: 35px;
+            font-size: 1.1rem;
         }
 
-        .blocky-stats-grid {
+        /* Philosophy Pillars */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 60px;
+        }
+
+        .philosophy-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.25s;
+        }
+
+        .philosophy-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .philosophy-card .ph-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .philosophy-card h4 {
+            font-size: 0.98rem;
+            margin-bottom: 4px;
+            color: var(--text-main);
+        }
+
+        .philosophy-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Two Games Grid */
+        .games-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 35px;
+            gap: 35px;
         }
 
-        .blocky-stat-card {
+        .game-item-card {
             background: var(--bg-card);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(168, 85, 247, 0.15);
-            padding: 18px;
-            border-radius: 14px;
+            backdrop-filter: blur(14px);
+            border-radius: 20px;
+            padding: 30px;
             display: flex;
-            gap: 14px;
-            align-items: flex-start;
-            transition: border-color 0.25s;
-        }
-
-        .blocky-stat-card:hover {
-            border-color: rgba(168, 85, 247, 0.4);
-        }
-
-        .blocky-icon {
-            width: 38px;
-            height: 38px;
-            color: #d8b4fe;
-            background: rgba(168, 85, 247, 0.15);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 1.15rem;
-        }
-
-        .blocky-stat-card h4 {
-            font-size: 0.98rem;
-            margin-bottom: 3px;
-        }
-
-        .blocky-stat-card p {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-        }
-
-        .blocky-mockup-frame {
+            flex-direction: column;
+            justify-content: space-between;
             position: relative;
-            width: 100%;
-            max-width: 480px;
-            margin: 0 auto;
-            border-radius: 24px;
             overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-blocky {
             border: 1px solid rgba(168, 85, 247, 0.3);
-            box-shadow: 0 0 60px rgba(168, 85, 247, 0.25);
-            background-color: #0c0814;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+            box-shadow: 0 0 50px rgba(168, 85, 247, 0.15);
+        }
+        .card-blocky:hover {
+            border-color: rgba(168, 85, 247, 0.6);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 60px rgba(168, 85, 247, 0.3);
         }
 
-        .blocky-mockup-frame:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 80px rgba(168, 85, 247, 0.4);
+        .card-racer {
+            border: 1px solid rgba(255, 140, 0, 0.3);
+            box-shadow: 0 0 50px rgba(255, 140, 0, 0.12);
+        }
+        .card-racer:hover {
+            border-color: rgba(255, 140, 0, 0.6);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 60px rgba(255, 140, 0, 0.25);
         }
 
-        .blocky-mockup-frame img {
+        .game-img-preview {
+            width: 100%;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            background: #000;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .game-img-preview img {
             width: 100%;
             height: auto;
             display: block;
+        }
+
+        .game-info-block h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .game-info-block .game-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .game-badges-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .pill-spec {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 500;
         }
 
         /* --- FIND GAMERS SECTION --- */
@@ -657,18 +701,19 @@
         /* --- RESPONSIVE MEDIA QUERIES --- */
         @media (max-width: 1024px) {
             .gallery-grid-5 { grid-template-columns: repeat(3, 1fr); }
+            .philosophy-grid { grid-template-columns: repeat(2, 1fr); }
             .hero-banner-img { width: 110%; transform: scale(1); }
-            .vision-split, .blocky-split { grid-template-columns: 1fr; }
+            .vision-split, .games-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 900px) {
-            .hero-split, .info-split, .vision-split, .blocky-split, .footer-grid, .feature-grid, .blocky-stats-grid { grid-template-columns: 1fr; gap: 35px; }
+            .hero-split, .info-split, .vision-split, .footer-grid, .feature-grid, .philosophy-grid, .games-grid { grid-template-columns: 1fr; gap: 35px; }
             .hero h1 { font-size: 3rem; }
             .hero-banner-img { width: 100%; transform: scale(1); }
             .gallery-grid-5 { grid-template-columns: 1fr; }
             nav ul { display: none; }
-            .app-mockup-frame, .video-mockup-container, .blocky-mockup-frame { max-width: 100%; }
-            .info-text h2, .gallery-header h2, .final-cta h2, .vision-text-block h2, .blocky-text h2 { font-size: 2.2rem; }
+            .app-mockup-frame, .video-mockup-container { max-width: 100%; }
+            .info-text h2, .gallery-header h2, .final-cta h2, .vision-text-block h2, .arcade-header h2 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -680,8 +725,8 @@
             <a href="#" class="logo-text"><i class="logo-icon">⚡</i> 24/7 ESPORTS</a>
             <nav>
                 <ul>
-                    <li><a href="#blocky">Blocky Game</a></li>
-                    <li><a href="#community">Community</a></li>
+                    <li><a href="#arcade">24/7 Arcade</a></li>
+                    <li><a href="#community">Sidekick App</a></li>
                     <li><a href="#vision">Vision</a></li>
                     <li><a href="#app">Find Gamers</a></li>
                     <li><a href="#about">About</a></li>
@@ -701,7 +746,7 @@
                     <p class="hero-subtitle">24/7 Esports is just getting started — and we want you in from day one. A community built by gamers, for gamers.</p>
                     <div class="hero-btns">
                         <a href="https://drive.google.com/uc?export=download&id=1apZlV0_HVBEJ3T93-bknc2bArxtuLa5J" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Get Sidekick App ↓</a>
-                        <a href="#blocky" class="btn btn-purple">Play Blocky 🎮</a>
+                        <a href="#arcade" class="btn btn-purple">Play 24/7 Games 🎮</a>
                     </div>
                 </div>
 
@@ -716,7 +761,7 @@
     <section id="community" class="app-gallery-section">
         <div class="container">
             <div class="gallery-header">
-                <span class="tag">INSIDE THE APP</span>
+                <span class="tag">INSIDE SIDEKICK APP</span>
                 <h2>Explore the Interface</h2>
                 <p>Engineered for low latency, smooth matchmaking, and community connectivity.</p>
             </div>
@@ -771,57 +816,97 @@
         </div>
     </section>
 
-    <!-- FEATURED GAME: BLOCKY SECTION -->
-    <section id="blocky" class="blocky-section">
+    <!-- 24/7 ARCADE: OUR GAMES HUB -->
+    <section id="arcade" class="arcade-section">
         <div class="container">
-            <div class="blocky-split">
-                <div class="blocky-text">
-                    <span class="tag tag-purple">★ FEATURED GAME</span>
-                    <h2>Play <span>Blocky</span> — The Ultimate 2D Grid Challenge</h2>
-                    <p class="main-p">Step into high-speed grid gameplay. Outmaneuver obstacles, execute precise turns, and climb the real-time global leaderboard against players worldwide.</p>
-                    
-                    <div class="blocky-stats-grid">
-                        <div class="blocky-stat-card">
-                            <div class="blocky-icon">🌍</div>
-                            <div>
-                                <h4>Global Leaderboards</h4>
-                                <p>Compete real-time for top world ranking spots.</p>
-                            </div>
-                        </div>
-                        <div class="blocky-stat-card">
-                            <div class="blocky-icon">⚡</div>
-                            <div>
-                                <h4>Fast 2D Grid Action</h4>
-                                <p>Responsive mechanics with instant replay loop.</p>
-                            </div>
-                        </div>
-                        <div class="blocky-stat-card">
-                            <div class="blocky-icon">🎯</div>
-                            <div>
-                                <h4>High Score Chases</h4>
-                                <p>Push your personal best and climb daily rankings.</p>
-                            </div>
-                        </div>
-                        <div class="blocky-stat-card">
-                            <div class="blocky-icon">📱</div>
-                            <div>
-                                <h4>Lightweight & Smooth</h4>
-                                <p>Optimized for ultra-smooth 60fps performance.</p>
-                            </div>
-                        </div>
-                    </div>
+            
+            <div class="arcade-header">
+                <span class="tag tag-purple">⚡ 24/7 INDIE ARCADE</span>
+                <h2>Pure Gameplay. Zero Bloat.</h2>
+                <p>We build lightweight, instant-action games designed for quick fun and global competition. No unnecessary permissions, no bloated storage — just high-score mastery.</p>
+            </div>
 
-                    <div class="hero-btns">
-                        <!-- Replace YOUR_BLOCKY_FILE_ID with your actual Google Drive File ID for Blocky -->
-                        <a href="https://drive.google.com/uc?export=download&id=1apZlV0_HVBEJ3T93-bknc2bArxtuLa5J" target="_blank" rel="noopener noreferrer" class="btn btn-purple">Download Blocky APK ↓</a>
-                        <a href="#community" class="btn btn-dark">View 24/7 Roster ›</a>
-                    </div>
+            <!-- CORE PHILOSOPHY PILLARS -->
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <div class="ph-icon">⚡</div>
+                    <h4>Ultra-Lightweight</h4>
+                    <p>Minimal storage footprint. Instant downloads under a few MBs.</p>
                 </div>
-
-                <div class="blocky-mockup-frame">
-                    <img src="blocky-banner.png" alt="Blocky 2D Grid Game - Addictive Block Puzzle Fun">
+                <div class="philosophy-card">
+                    <div class="ph-icon">🛡️</div>
+                    <h4>Zero Permissions</h4>
+                    <p>No contact/location/camera access required. Install and play privately.</p>
+                </div>
+                <div class="philosophy-card">
+                    <div class="ph-icon">🕹️</div>
+                    <h4>Simple & Addictive</h4>
+                    <p>Easy-to-learn mechanics with deep skill ceilings and instant replays.</p>
+                </div>
+                <div class="philosophy-card">
+                    <div class="ph-icon">🌍</div>
+                    <h4>Global Leaderboard</h4>
+                    <p>Real-time competitive high scores competing with players worldwide.</p>
                 </div>
             </div>
+
+            <!-- GAMES GRID: BLOCKY & RETRO RACER -->
+            <div class="games-grid">
+                
+                <!-- GAME 1: BLOCKY -->
+                <div class="game-item-card card-blocky">
+                    <div>
+                        <span class="tag tag-purple" style="margin-bottom: 12px;">● AVAILABLE NOW</span>
+                        <div class="game-img-preview">
+                            <img src="blocky-banner.png" alt="Blocky 2D Grid Game">
+                        </div>
+                        <div class="game-info-block">
+                            <h3>Blocky: 2D Grid Challenge</h3>
+                            <p class="game-desc">A fast-paced block puzzle grid experience. Place tetromino blocks strategically, clear lines to trigger multipliers, and climb the real-time world leaderboard.</p>
+                            
+                            <div class="game-badges-row">
+                                <span class="pill-spec">📦 Tiny APK Size</span>
+                                <span class="pill-spec">🔒 No Permissions</span>
+                                <span class="pill-spec">🏆 Global High Scores</span>
+                                <span class="pill-spec">⚡ 60 FPS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="https://drive.google.com/file/d/YOUR_ACTUAL_BLOCKY_ID/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-purple" style="width: 100%;">Download Blocky APK ↓</a>
+                    </div>
+                </div>
+
+                <!-- GAME 2: RETRO RACER (COMING SOON) -->
+                <div class="game-item-card card-racer">
+                    <div>
+                        <span class="tag tag-orange" style="margin-bottom: 12px;">⌛ COMING SOON</span>
+                        <div class="game-img-preview" style="background: linear-gradient(135deg, #180a02 0%, #301402 100%); display: flex; align-items: center; justify-content: center; min-height: 220px;">
+                            <div style="text-align: center; padding: 25px;">
+                                <div style="font-size: 3.5rem; margin-bottom: 8px;">🏎️💨</div>
+                                <h4 style="font-family: var(--font-heading); font-size: 1.4rem; color: #ffb74d;">2D RETRO RACER</h4>
+                                <p style="font-size: 0.8rem; color: #ffa726; opacity: 0.85;">High-Octane Pixel Circuit</p>
+                            </div>
+                        </div>
+                        <div class="game-info-block">
+                            <h3>Retro Racer 2D</h3>
+                            <p class="game-desc">Classic arcade top-down racing. Dodge traffic at blistering speeds, master drift turns, collect score boosters, and battle worldwide players for the fastest lap time.</p>
+                            
+                            <div class="game-badges-row">
+                                <span class="pill-spec">🏎️ 2D Retro Style</span>
+                                <span class="pill-spec">🔒 Zero Permissions</span>
+                                <span class="pill-spec">🌍 Global Lap Times</span>
+                                <span class="pill-spec">🎮 Offline Friendly</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-orange-disabled" style="width: 100%;" disabled>In Final Testing — Dropping Soon 🚀</button>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </section>
 
@@ -887,7 +972,7 @@
                 </div>
 
                 <div class="hero-btns">
-                    <a href="https://drive.google.com/uc?export=download&id=1vmBHCGQW8Sfqst64dhlSd3NLBzw_GVMD" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Download App</a>
+                    <a href="https://drive.google.com/uc?export=download&id=1apZlV0_HVBEJ3T93-bknc2bArxtuLa5J" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Download App</a>
                     <a href="#" class="btn btn-dark">Launch Web App</a>
                 </div>
             </div>
@@ -943,7 +1028,7 @@
             <span class="tag">EARLY ACCESS</span>
             <h2>Be Part of Something New.</h2>
             <p class="main-p">24/7 Esports is just launching. Join early, shape the community, and be among the first to connect when matches go live.</p>
-            <a href="https://drive.google.com/uc?export=download&id=1vmBHCGQW8Sfqst64dhlSd3NLBzw_GVMD" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Join 24/7 Esports — It's Free ›</a>
+            <a href="https://drive.google.com/uc?export=download&id=1apZlV0_HVBEJ3T93-bknc2bArxtuLa5J" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Join 24/7 Esports — It's Free ›</a>
         </div>
     </section>
 
@@ -959,8 +1044,8 @@
                 <div class="footer-nav">
                     <h5>NAVIGATE</h5>
                     <ul>
-                        <li><a href="#blocky">Blocky Game</a></li>
-                        <li><a href="#community">Community</a></li>
+                        <li><a href="#arcade">24/7 Arcade</a></li>
+                        <li><a href="#community">Sidekick App</a></li>
                         <li><a href="#vision">Our Vision</a></li>
                         <li><a href="#app">Find Gamers App</a></li>
                         <li><a href="#about">About Us</a></li>
@@ -970,7 +1055,7 @@
                 <div class="footer-cta">
                     <h5>READY TO PLAY?</h5>
                     <p>Join gamers preparing to connect on 24/7 Esports.</p>
-                    <a href="https://drive.google.com/uc?export=download&id=1vmBHCGQW8Sfqst64dhlSd3NLBzw_GVMD" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Join the Community</a>
+                    <a href="https://drive.google.com/uc?export=download&id=1apZlV0_HVBEJ3T93-bknc2bArxtuLa5J" target="_blank" rel="noopener noreferrer" class="btn btn-dark">Join the Community</a>
                 </div>
             </div>
             <div class="footer-bottom">
