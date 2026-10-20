@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>24/7 Esports | Your Community. 24/7.</title>
+    <!-- Modern Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
@@ -447,7 +448,6 @@
             transform: translateY(-4px);
         }
 
-        /* Clean Uncropped Preview Frame */
         .game-img-preview {
             width: 100%;
             border-radius: 12px;
@@ -499,7 +499,7 @@
             font-weight: 500;
         }
 
-        /* --- FIND GAMERS SECTION --- */
+        /* --- SIDEKICK ARCHITECTURE FEATURES --- */
         .info-split {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -522,20 +522,20 @@
             margin-bottom: 20px;
         }
 
-        .feature-grid {
+        .feature-grid-tactical {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 12px;
-            margin-bottom: 22px;
+            margin-bottom: 24px;
         }
 
         .feature-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
-            padding: 12px 14px;
-            border-radius: 10px;
+            padding: 14px 16px;
+            border-radius: 12px;
             display: flex;
-            gap: 10px;
+            gap: 14px;
             align-items: flex-start;
             transition: all 0.2s;
         }
@@ -543,24 +543,25 @@
         .feature-card:hover {
             border-color: var(--border-hover);
             background: var(--bg-card-hover);
+            transform: translateX(3px);
         }
 
         .feature-icon-v3 {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             color: var(--accent-cyan);
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             background: rgba(0, 240, 255, 0.08);
-            border-radius: 6px;
+            border-radius: 8px;
             border: 1px solid var(--accent-cyan-dim);
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
-        .feature-card-text h4 { font-size: 0.88rem; margin-bottom: 2px; }
-        .feature-card-text p { font-size: 0.75rem; color: var(--text-muted); line-height: 1.35; }
+        .feature-card-text h4 { font-size: 0.92rem; margin-bottom: 2px; }
+        .feature-card-text p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
 
         .app-mockup-frame {
             width: 100%;
@@ -710,10 +711,10 @@
             <a href="#" class="logo-text"><i class="logo-icon">⚡</i> 24/7 ESPORTS</a>
             <nav>
                 <ul>
+                    <li><a href="#sidekick">Sidekick HUD</a></li>
                     <li><a href="#arcade">24/7 Arcade</a></li>
-                    <li><a href="#community">Sidekick App</a></li>
+                    <li><a href="#community">Screens</a></li>
                     <li><a href="#vision">Vision</a></li>
-                    <li><a href="#app">Find Gamers</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
             </nav>
@@ -726,9 +727,9 @@
         <div class="container">
             <div class="hero-split">
                 <div class="hero-text-block">
-                    <span class="tag">● Launching Soon — Be First</span>
+                    <span class="tag">● Tactical Esports HUD</span>
                     <h1>YOUR GAME.<br>YOUR COMMUNITY.<br><span class="cyan">24/7.</span></h1>
-                    <p class="hero-subtitle">24/7 Esports is just getting started — and we want you in from day one. A community built by gamers, for gamers.</p>
+                    <p class="hero-subtitle">Meet Sidekick: High-precision proximity radar, live LFG session arenas, clan guild hubs, and real-time war room comms built for competitive gamers.</p>
                     <div class="hero-btns">
                         <a href="https://drive.google.com/uc?export=download&id=1apZlV0_HVBEJ3T93-bknc2bArxtuLa5J" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Get Sidekick App ↓</a>
                         <a href="#arcade" class="btn btn-purple">Play 24/7 Games 🎮</a>
@@ -747,54 +748,54 @@
         <div class="container">
             <div class="gallery-header">
                 <span class="tag">INSIDE SIDEKICK APP</span>
-                <h2>Explore the Interface</h2>
-                <p>Engineered for low latency, smooth matchmaking, and community connectivity.</p>
+                <h2>Explore the Tactical Interface</h2>
+                <p>Deep dark cyberpunk styling with micro-grid HUD accents and real-time Firestore synchronization.</p>
             </div>
 
             <div class="gallery-grid-5">
                 <div class="gallery-card">
                     <div class="gallery-img-wrapper">
-                        <img src="screen-1.png" alt="Radar Lobby" class="gallery-img">
+                        <img src="screen-1.png" alt="Proximity Radar Scanner" class="gallery-img">
                     </div>
                     <div class="gallery-card-content">
-                        <h4>Radar Lobby</h4>
-                        <p>Radius player discovery.</p>
+                        <h4>Radar Scanner</h4>
+                        <p>Proximity player & drop-in search.</p>
                     </div>
                 </div>
                 <div class="gallery-card">
                     <div class="gallery-img-wrapper">
-                        <img src="screen-2.png" alt="Gamer Profile" class="gallery-img">
+                        <img src="screen-2.png" alt="Universal Gaming Passport" class="gallery-img">
                     </div>
                     <div class="gallery-card-content">
-                        <h4>Gamer Profile</h4>
-                        <p>Cross-game identity hub.</p>
+                        <h4>Gaming Passport</h4>
+                        <p>Credentials, karma & game IDs.</p>
                     </div>
                 </div>
                 <div class="gallery-card">
                     <div class="gallery-img-wrapper">
-                        <img src="screen-3.png" alt="Squad Center" class="gallery-img">
+                        <img src="screen-3.png" alt="War Room Comms" class="gallery-img">
                     </div>
                     <div class="gallery-card-content">
-                        <h4>Squad Center</h4>
-                        <p>Direct chats & requests.</p>
+                        <h4>War Room Comms</h4>
+                        <p>Direct & group clan messaging.</p>
                     </div>
                 </div>
                 <div class="gallery-card">
                     <div class="gallery-img-wrapper">
-                        <img src="screen-4.png" alt="Filter Options" class="gallery-img">
+                        <img src="screen-4.png" alt="LFG Matchmaking Filters" class="gallery-img">
                     </div>
                     <div class="gallery-card-content">
                         <h4>Match Filters</h4>
-                        <p>Skill & game tuning.</p>
+                        <p>BGMI, CoD, Valorant & distance.</p>
                     </div>
                 </div>
                 <div class="gallery-card">
                     <div class="gallery-img-wrapper">
-                        <img src="screen-5.png" alt="Pin Management" class="gallery-img">
+                        <img src="screen-5.png" alt="Guild Hub & Clan Management" class="gallery-img">
                     </div>
                     <div class="gallery-card-content">
-                        <h4>Pin Management</h4>
-                        <p>Host dynamic lobbies.</p>
+                        <h4>Guild Hub</h4>
+                        <p>Clan emblems, rosters & war rooms.</p>
                     </div>
                 </div>
             </div>
@@ -808,7 +809,7 @@
             <div class="arcade-header">
                 <span class="tag tag-purple">⚡ 24/7 INDIE ARCADE</span>
                 <h2>Pure Gameplay. Zero Bloat.</h2>
-                <p>We build lightweight, instant-action games designed for quick fun and global competition. No unnecessary permissions, no bloated storage — just high-score mastery.</p>
+                <p>Lightweight, instant-action games designed for quick fun and global competition. No permissions, no bloated storage — just high-score mastery.</p>
             </div>
 
             <!-- CORE PHILOSOPHY PILLARS -->
@@ -896,8 +897,8 @@
         </div>
     </section>
 
-    <!-- FIND GAMERS SECTION WITH RADAR VIDEO -->
-    <section id="app" class="find-gamers">
+    <!-- SIDEKICK ARCHITECTURE & CORE FEATURES -->
+    <section id="sidekick" class="find-gamers">
         <div class="container info-split">
             
             <div class="app-mockup-frame">
@@ -908,58 +909,51 @@
             </div>
 
             <div class="info-text">
-                <span class="tag">★ New App Launch</span>
-                <h2>Find Gamers<br>Near You</h2>
-                <p class="main-p">Tired of playing alone? The 24/7 Esports app helps you discover gamers in your area — connect, team up, and play together in real life or online.</p>
+                <span class="tag">★ Full Architecture</span>
+                <h2>Next-Gen Squad & Matchmaking HUD</h2>
+                <p class="main-p">Sidekick combines low-latency proximity radar scanning with active drop-in matchmaking, custom gaming guilds, and a 24-hour tactical highlight stream.</p>
                 
-                <div class="feature-grid">
+                <div class="feature-grid-tactical">
                     <div class="feature-card">
-                        <div class="feature-icon-v3">🌐</div>
+                        <div class="feature-icon-v3">📡</div>
                         <div class="feature-card-text">
-                            <h4>Discover Local Gamers</h4>
-                            <p>Find players within your exact locality or region.</p>
+                            <h4>Proximity Radar Scanner</h4>
+                            <p>Calculates live real-time distance and radial sweeps to detect nearby players and active squads within customizable limits.</p>
                         </div>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon-v3">📍</div>
+                        <div class="feature-icon-v3">⚔️</div>
                         <div class="feature-card-text">
-                            <h4>Host Pinned Lobbies</h4>
-                            <p>Drop lobby pins on the radar to launch direct group chats.</p>
+                            <h4>LFG Arena & Scheduled Drop-Ins</h4>
+                            <p>Live active counter with instant one-tap session joins. Filter by protocol (BGMI, CoD: Mobile, Valorant) and auto-route into match comms.</p>
                         </div>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon-v3">🔍</div>
+                        <div class="feature-icon-v3">🛡️</div>
                         <div class="feature-card-text">
-                            <h4>Skill-Based Filtering</h4>
-                            <p>Filter by game, skill level, and availability.</p>
+                            <h4>Squad Dossiers & Guild Clan Hub</h4>
+                            <p>Form elite clans with custom emblems, tags, and mottos. Manage connected squadmates and clan rosters with direct war room access.</p>
                         </div>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon-v3">⏰</div>
+                        <div class="feature-icon-v3">🎬</div>
                         <div class="feature-card-text">
-                            <h4>Session Alerts</h4>
-                            <p>Schedule gaming sessions and get notified before game time.</p>
+                            <h4>Tactical Feed & Highlight Stream</h4>
+                            <p>Video highlight sharing platform with 24-hour auto-purge cleanup. Switch between Immersive Feed and Grid Matrix with AI clip trimming.</p>
                         </div>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon-v3">💬</div>
                         <div class="feature-card-text">
-                            <h4>Instant Chat</h4>
-                            <p>Chat, team up, and coordinate gaming sessions seamlessly.</p>
-                        </div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon-v3">📅</div>
-                        <div class="feature-card-text">
-                            <h4>Local Events</h4>
-                            <p>Join local gaming events and community meetups.</p>
+                            <h4>War Room Comms & Universal Passports</h4>
+                            <p>Direct 1-on-1 and clan war room messaging streams backed by real-time Firestore. Inspect player karma ratings, endorsements, and game IDs.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="hero-btns">
-                    <a href="https://drive.google.com/uc?export=download&id=1apZlV0_HVBEJ3T93-bknc2bArxtuLa5J" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Download App</a>
-                    <a href="#" class="btn btn-dark">Launch Web App</a>
+                    <a href="https://drive.google.com/uc?export=download&id=1apZlV0_HVBEJ3T93-bknc2bArxtuLa5J" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">Download Sidekick APK</a>
+                    <a href="#arcade" class="btn btn-dark">View 24/7 Arcade</a>
                 </div>
             </div>
 
@@ -1030,10 +1024,10 @@
                 <div class="footer-nav">
                     <h5>NAVIGATE</h5>
                     <ul>
+                        <li><a href="#sidekick">Sidekick HUD</a></li>
                         <li><a href="#arcade">24/7 Arcade</a></li>
-                        <li><a href="#community">Sidekick App</a></li>
+                        <li><a href="#community">Screens</a></li>
                         <li><a href="#vision">Our Vision</a></li>
-                        <li><a href="#app">Find Gamers App</a></li>
                         <li><a href="#about">About Us</a></li>
                     </ul>
                 </div>
